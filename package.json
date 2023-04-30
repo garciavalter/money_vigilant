@@ -20,7 +20,24 @@
   "author": "Valter Roberto Garcia Junior <junior.opto@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
-    "@typescript-eslint/parser": "^5.59.1"
+    "@typescript-eslint/parser": "^5.59.1",
+    "jest": "^29.5.0",
+    "shelljs": "^0.8.5",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.6",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "scripts": {
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules ./src/index.ts",
+    "copy:assets": "ts-node tools/copyAssets.ts",
+    "build": "tsc && tsc-alias",
+    "test:unit": "jest -c jest.config.unit.js",
+    "test:integration": "jest -c jest.config.integration.js",
+    "test:e2e": "jest -c jest.config.e2e.js",
+    "swagger-autogen": "node src/config/swagger.js"
   }
 }
