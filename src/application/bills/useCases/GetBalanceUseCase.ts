@@ -17,11 +17,10 @@ class GetBalanceUseCase {
 			balance[costCenter] = currentBalance - bills;
 			return balance;
 		}));
-		console.log(balance);
+		return balance;
 	}
 	private async getCurrentBalance(costCenter: string) {
 		const monthlyLimit = await this.billRepository.getMonthlyLimit(costCenter);
-		console.log(monthlyLimit);
 		const date1 = monthlyLimit.startingDate;
 		const date2 = new Date();
 		const diffMonths = (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth());

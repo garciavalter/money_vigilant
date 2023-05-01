@@ -51,6 +51,12 @@ describe('GetBalanceUseCase Unit Test', () => {
 		bills.forEach(async bill => await billsRepository.createBillIfNotExists(bill));
 		const useCase = container.resolve(GetBalanceUseCase);
 		const output = await useCase.execute();
-		expect(output).toBe(undefined);
+		expect(output).toStrictEqual(
+			[
+				{ 'Cost Center 1': 11700 },
+				{ 'Cost Center 2': 24000 },
+				{ 'Cost Center 3': 36000 }
+			]
+		);
 	});
 });
