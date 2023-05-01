@@ -2,11 +2,14 @@ import BatchBillRegisterUseCase from '@application/bills/useCases/BatchBillRegis
 import excelToJson from 'convert-excel-to-json';
 import { container } from 'tsyringe';
 import BillDTO from '@application/bills/useCases/Bill.dto';
+import GetBalanceUseCase from '@application/bills/useCases/GetBalanceUseCase';
+import { Request, Response } from 'express';
 
 interface excelDataDTO { [key: string]: string }
 
 class BillsController {
 	private batchBillRegisteruseCase: BatchBillRegisterUseCase = container.resolve(BatchBillRegisterUseCase);
+	private getBalanceUseCase: GetBalanceUseCase = container.resolve(GetBalanceUseCase);
 	async registerBatch(bills: Buffer) {
 		let formatBill: BillDTO[];
 		try {
@@ -22,6 +25,11 @@ class BillsController {
 			return { sucess: [], error: [] };
 		}
 
+	}
+
+	async getBalance() {
+		const output = await this.getBalanceUseCase.execute();
+		return output;
 	}
 
 	private formatBill(bills: Buffer): BillDTO[] {
