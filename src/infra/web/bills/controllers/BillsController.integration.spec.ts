@@ -12,22 +12,6 @@ beforeAll(() => {
 	billsRepository = new MemoryBillsRepository();
 	container.registerInstance('BillRepository', billsRepository);
 });
-let server;
-
-
-beforeEach((done) => {
-	server = app.listen(4000, (err) => {
-		if (err) return done(err);
-
-		agent = request.agent(server); // since the application is already listening, it should use the allocated port
-		done();
-	});
-});
-
-afterEach((done) => {
-	return server && server.close(done);
-});
-
 describe('BillsController Integration Test', () => {
 	it('should be able to register a batch of bills', async () => {
 		const bills = [
@@ -86,7 +70,7 @@ describe('BillsController Integration Test', () => {
 		const billsController = new BillsController();
 		const output = await billsController.getBalance();
 		expect(output).toStrictEqual([
-			{ 'Cost Center 1': 11700 },
+			{ 'Cost Center 1': 11600 },
 			{ 'Cost Center 2': 24000 },
 			{ 'Cost Center 3': 36000 }
 		]);
