@@ -31,6 +31,4 @@ billsRouter.get('/get-balance', async (request: Request, response: Response) => 
 		return response.status(500).send('Internal server error');
 	}
 });
-
-
 export default billsRouter;
