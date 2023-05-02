@@ -9,10 +9,7 @@ const billsController = new BillsController();
 
 billsRouter.post('/', (request: Request, response: Response) => {
 	const form = new IncomingForm();
-	console.log('form created');
-	let file;
 	form.parse(request, async (err, fields, files) => {
-		console.log('parsing files');
 		if (err) {
 			console.error(err);
 			response.status(500).send('Internal server error');
@@ -23,8 +20,17 @@ billsRouter.post('/', (request: Request, response: Response) => {
 		const res = await billsController.registerBatch(readableStream);
 		return response.status(200).json(res);
 	});
-
-
 });
+billsRouter.get('/get-balance', async (request: Request, response: Response) => {
+
+	try {
+		const res = await billsController.getBalance();
+		return response.status(200).json(res);
+	} catch (err) {
+		console.error(err);
+		return response.status(500).send('Internal server error');
+	}
+});
+
 
 export default billsRouter;

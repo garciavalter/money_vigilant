@@ -6,11 +6,26 @@ import { container } from 'tsyringe';
 import MemoryBillsRepository from '@infra/repositories/sequelize/bills/MemoryBillsRepository';
 
 let billsRepository: MemoryBillsRepository;
-beforeEach(() => {
+beforeAll(() => {
 	jest.useFakeTimers().setSystemTime(new Date('2023-01-01'));
 	container.reset();
 	billsRepository = new MemoryBillsRepository();
 	container.registerInstance('BillRepository', billsRepository);
+});
+let server;
+
+
+beforeEach((done) => {
+	server = app.listen(4000, (err) => {
+		if (err) return done(err);
+
+		agent = request.agent(server); // since the application is already listening, it should use the allocated port
+		done();
+	});
+});
+
+afterEach((done) => {
+	return server && server.close(done);
 });
 
 describe('BillsController Integration Test', () => {
