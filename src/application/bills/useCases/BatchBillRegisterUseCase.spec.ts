@@ -35,11 +35,12 @@ describe('BatchBillRegisterUseCase Unity Test', () => {
 				amount: 100,
 				paymentDate: new Date(),
 				description: 'Bill 1 description',
-				costCenter: 'Cost Center 2'
+				costCenter: 'Unavailable Cost Center'
 			}
 		];
 		const batchBillRegisterUseCase = container.resolve(BatchBillRegisterUseCase);
 		const output = await batchBillRegisterUseCase.execute(bills);
+
 		expect(output).toStrictEqual({ sucess: [], error: [{ ...bills[0], error: 'Cost Center not found' }] });
 	});
 	it('should return if a bill already exists', async () => {
