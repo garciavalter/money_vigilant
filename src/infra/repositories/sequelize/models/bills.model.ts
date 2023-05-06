@@ -26,6 +26,7 @@ export default class Bills extends Model {
 	declare payment_date: Date;
 	@Column({ allowNull: false })
 	declare description: string;
+	@ForeignKey(() => CostCenters)
 	@Column({
 		allowNull: false,
 		references: {
