@@ -1,0 +1,41 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "localpassword",
+        "database": "money_vigilant_development",
+        "host": "localhost",
+        "dialect": "postgres",
+        "underscored": true,
+        "logging": false,
+        "define": {
+            "createdAt": "created_at",
+            "updatedAt": "updated_at"
+        }
+    },
+    "test": {
+        "username": "postgres",
+        "password": "localpassword",
+        "database": "money_vigilant_test",
+        "host": "localhost",
+        "dialect": "postgres",
+        "underscored": true,
+        "logging": false,
+        "define": {
+            "createdAt": "created_at",
+            "updatedAt": "updated_at"
+        }
+    },
+    "production": {
+        "username": "postgres",
+        "password": "localpassword",
+        "database": "money_vigilant_production",
+        "host": "172.25.0.2",
+        "dialect": "postgres",
+        "raw": true,
+        "logging": false,
+        "define": {
+            "createdAt": "created_at",
+            "updatedAt": "updated_at"
+        }
+    }
+}
