@@ -5,6 +5,7 @@ import {
 	Column,
 	BelongsTo,
 	DataType,
+	ForeignKey,
 } from 'sequelize-typescript';
 import CostCenters from './CostCenters.models';
 @Table({
@@ -38,5 +39,4 @@ export default class Bills extends Model {
 	declare id_cost_center: string;
 	@BelongsTo(() => CostCenters)
 	declare costCenter: CostCenters[];
-
 }
