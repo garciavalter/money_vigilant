@@ -7,7 +7,7 @@ import {
 	DataType,
 	ForeignKey,
 } from 'sequelize-typescript';
-import CostCenters from './CostCenters.models';
+import CostCenters from './CostCenters.model';
 @Table({
 	tableName: 'bills',
 	timestamps: true,

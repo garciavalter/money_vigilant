@@ -6,7 +6,7 @@ import {
 	HasMany,
 	DataType,
 } from 'sequelize-typescript';
-import Bills from './bills.model';
+import Bills from './Bills.model';
 @Table({
 	tableName: 'cost_centers',
 	timestamps: true,
