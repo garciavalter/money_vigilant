@@ -24,7 +24,7 @@ module.exports = {
 				allowNull: true,
 				type: Sequelize.STRING
 			},
-			cost_center: {
+			id_cost_center: {
 				allowNull: false,
 				type: Sequelize.UUID,
 				references: {
