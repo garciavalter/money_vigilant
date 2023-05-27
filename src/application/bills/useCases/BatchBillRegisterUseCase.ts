@@ -1,4 +1,4 @@
-import BillsRepositoryInterface from '@infra/repositories/sequelize/bills/BillsRepositoryInterface';
+import BillsRepositoryInterface from '@domain/bills/repositories/BillsRepositoryInterface';
 import { inject, injectable } from 'tsyringe';
 import BillDTO from './Bill.dto';
 

@@ -1,5 +1,5 @@
 import BillDTO from '@application/bills/useCases/Bill.dto';
-import BillsRepositoryInterface from './BillsRepositoryInterface';
+import BillsRepositoryInterface from '../../../../domain/bills/repositories/BillsRepositoryInterface';
 import monthlyLimit from '@application/bills/useCases/MonthlyLimit.dto';
 
 class MemoryBillsRepository implements BillsRepositoryInterface {

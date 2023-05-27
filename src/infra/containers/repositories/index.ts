@@ -1,5 +1,5 @@
 import { container } from 'tsyringe';
-import BillsRepositoryInterface from '@infra/repositories/sequelize/bills/BillsRepositoryInterface';
+import BillsRepositoryInterface from '@domain/bills/repositories/BillsRepositoryInterface';
 import MemoryBillsRepository from '@infra/repositories/sequelize/bills/MemoryBillsRepository';
 container.registerSingleton<BillsRepositoryInterface>(
 	'BillRepository',

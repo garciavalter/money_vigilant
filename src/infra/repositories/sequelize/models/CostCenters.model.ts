@@ -23,7 +23,7 @@ export default class CostCenters extends Model {
 	@Column({ allowNull: false })
 	declare monthly_limit: number;
 	@Column({ allowNull: false })
-	declare startingDate: Date;
+	declare starting_date: Date;
 	@HasMany(() => Bills)
 	declare bills: Bills[];
 }
